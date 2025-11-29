@@ -32,7 +32,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
           
           <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 inline-block mb-4">
             <img 
-              src="/assets/QRCode.png" 
+              src="https://super-jackie.oss-cn-guangzhou.aliyuncs.com/personal/QRCode.png" 
               alt="咨询二维码" 
               className="w-48 h-48 object-contain mx-auto"
             />
