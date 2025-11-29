@@ -1,7 +1,11 @@
 import React from 'react';
 import { ArrowRight, Info } from 'lucide-react';
 
-export const CallToAction: React.FC = () => {
+interface CallToActionProps {
+  onConsultClick: () => void;
+}
+
+export const CallToAction: React.FC<CallToActionProps> = ({ onConsultClick }) => {
   return (
     <section className="relative py-24 overflow-hidden bg-gradient-to-br from-blue-50 to-white border-t border-b border-gray-100">
       {/* Background Pattern */}
@@ -25,10 +29,13 @@ export const CallToAction: React.FC = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-md font-medium transition-all shadow-md shadow-primary-200">
+          <button 
+            onClick={onConsultClick}
+            className="flex items-center justify-center gap-2 bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-md font-medium transition-all shadow-md shadow-primary-200"
+          >
             立即咨询 <ArrowRight className="w-4 h-4" />
           </button>
-          <button className="flex items-center gap-2 bg-primary-50 hover:bg-primary-100 text-primary-600 px-8 py-3 rounded-md font-medium transition-all border border-primary-100">
+          <button className="flex items-center justify-center gap-2 bg-primary-50 hover:bg-primary-100 text-primary-600 px-8 py-3 rounded-md font-medium transition-all border border-primary-100">
             <Info className="w-4 h-4" /> 了解服务
           </button>
         </div>

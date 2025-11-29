@@ -3,7 +3,11 @@ import { Menu, X, Sun } from 'lucide-react';
 import { Logo } from './Logo';
 import { NAV_LINKS } from '../constants';
 
-export const Navbar: React.FC = () => {
+interface NavbarProps {
+  onConsultClick: () => void;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ onConsultClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -40,7 +44,8 @@ export const Navbar: React.FC = () => {
           
           <div className="flex items-center gap-4">
             <button 
-              className="px-5 py-2 text-sm font-medium text-white bg-primary-100 text-primary-600 hover:bg-primary-200 rounded-md transition-colors"
+              onClick={onConsultClick}
+              className="px-5 py-2 text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 rounded-md transition-colors shadow-sm"
             >
               立即咨询
             </button>
@@ -72,7 +77,13 @@ export const Navbar: React.FC = () => {
               {link.label}
             </a>
           ))}
-          <button className="w-full py-3 bg-primary-600 text-white rounded-md font-medium">
+          <button 
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              onConsultClick();
+            }}
+            className="w-full py-3 bg-primary-600 text-white rounded-md font-medium"
+          >
             立即咨询
           </button>
         </div>

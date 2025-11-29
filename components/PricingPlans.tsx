@@ -2,7 +2,11 @@ import React from 'react';
 import { Check } from 'lucide-react';
 import { PRICING_PLANS } from '../constants';
 
-export const PricingPlans: React.FC = () => {
+interface PricingPlansProps {
+  onConsultClick: () => void;
+}
+
+export const PricingPlans: React.FC<PricingPlansProps> = ({ onConsultClick }) => {
   return (
     <section className="py-20 bg-gray-50" id="pricing">
       <div className="container mx-auto px-4">
@@ -53,6 +57,7 @@ export const PricingPlans: React.FC = () => {
               </ul>
 
               <button 
+                onClick={onConsultClick}
                 className={`w-full py-3 rounded-lg font-medium transition-colors ${
                   plan.isHighlighted
                     ? 'bg-primary-100 text-primary-700 hover:bg-primary-200'

@@ -1,7 +1,11 @@
 import React from 'react';
 import { ArrowRight, Info } from 'lucide-react';
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  onConsultClick: () => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
   return (
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-gradient-to-b from-blue-50 via-white to-white">
       {/* Background decoration - dashed line */}
@@ -29,10 +33,13 @@ export const Hero: React.FC = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-md font-medium transition-all shadow-lg shadow-primary-200">
+          <button 
+            onClick={onConsultClick}
+            className="flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-md font-medium transition-all shadow-lg shadow-primary-200"
+          >
             立即咨询 <ArrowRight className="w-4 h-4" />
           </button>
-          <button className="flex items-center gap-2 bg-white hover:bg-gray-50 text-gray-600 border border-gray-200 px-8 py-3 rounded-md font-medium transition-all">
+          <button className="flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-600 border border-gray-200 px-8 py-3 rounded-md font-medium transition-all">
             <Info className="w-4 h-4" /> 了解服务
           </button>
         </div>
